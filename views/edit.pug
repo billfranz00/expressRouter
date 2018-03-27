@@ -1,0 +1,8 @@
+extends base.pug
+
+block content
+	h2 Opposites Attract #{user.name}
+	h4 Edit your name or Delete yourself...
+	form(method="POST" action=`/users/${user.id}?_method=PATCH`)
+		input(type="text" name="name" placeholder="Change that name of yours...")
+		button(type="submit") Enter Bro

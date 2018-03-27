@@ -27,8 +27,15 @@ router.get("/users/:id/edit", (req, res, next) => {
 router.post("/users", (req, res, next) => {
 	users.push({
 		name: req.body.name,
-		id: ++id
+		id: id++
 	});
+	return res.redirect("/users");
+});
+
+// PATCH Requests
+router.patch("/users/:id", (req, res, next) => {
+	const user = users.find(val => val.id === Number(req.params.id));
+	user.name = req.body.name;
 	return res.redirect("/users");
 });
 
