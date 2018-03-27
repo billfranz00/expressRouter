@@ -39,9 +39,10 @@ router.patch("/users/:id", (req, res, next) => {
 	return res.redirect("/users");
 });
 
-//DELETE Requests
+// DELETE Requests
 router.delete("/users/:id", (req, res, next) => {
-	users.splice(Number(req.params.id) - 1, Number(req.params.id));
+	const userIndex = users.findIndex(val => val.id === Number(req.params.id));
+	users.splice(userIndex, 1);
 	return res.redirect("/users");
 })
 
