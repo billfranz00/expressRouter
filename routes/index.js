@@ -39,4 +39,10 @@ router.patch("/users/:id", (req, res, next) => {
 	return res.redirect("/users");
 });
 
+//DELETE Requests
+router.delete("/users/:id", (req, res, next) => {
+	users.splice(Number(req.params.id) - 1, Number(req.params.id));
+	return res.redirect("/users");
+})
+
 module.exports = router;

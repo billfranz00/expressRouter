@@ -5,3 +5,7 @@ h1 {
 .close-top-margin {
 	margin-top: -15px;
 }
+
+.upper-boundary {
+	margin-top: 20px;
+}
