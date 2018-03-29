@@ -50,7 +50,8 @@ var id = 1;
 
 // Homepage
 router
-	.route("/users")
+	// .route("/users")
+	.route("")
 	.get((req, res, next) => {
 		return res.render("index", {users}); // {{users}} --> {{users: users}}
 	})
@@ -63,13 +64,15 @@ router
 	});
 
 // New User Page
-router.get("/users/new", (req, res, next) => {
+// router.get("/users/new", (req, res, next) => {
+router.get("/new", (req, res, next) => {
 	return res.render("new");
 });
 
 // User Page
 router
-	.route("/users/:id")
+	// .route("/users/:id")
+	.route("/:id")
 	.get((req, res, next) => {
 		const user = users.find(val => val.id === Number(req.params.id));
 		return res.render("show", {user});
@@ -86,7 +89,8 @@ router
 	});
 
 // Edit User Page
-router.get("/users/:id/edit", (req, res, next) => {
+// router.get("/users/:id/edit", (req, res, next) => {
+router.get("/:id/edit", (req, res, next) => {
 	const user = users.find(val => val.id === Number(req.params.id));
 	return res.render("edit", {user});
 });

@@ -20,7 +20,8 @@ app.use(express.static(__dirname + "/public"));
 
 // Express Router
 const userRoutes = require("./routes");
-app.use(userRoutes);
+// app.use(userRoutes);
+app.use("/users", userRoutes);
 
 // Redirect to Homepage
 app.get("/", (req, res, next) => {
